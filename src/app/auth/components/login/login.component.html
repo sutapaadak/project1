@@ -1,0 +1,51 @@
+<div class="alert alert-danger" *ngIf="error">
+    <h1>{{error.errorTitle}}</h1>
+    <h3>{{error.errorDesc}}</h3>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 col-md-6 col-lg-4 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sign In</h5>
+                    <div class="alert alert-danger" *ngIf="loginError">
+                        {{loginError}}
+                    </div>
+                    <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="form-label-group" [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+                            <input type="email" id="inputEmail"  class="form-control" placeholder="Email address" formControlName="username" [ngClass]="{ 'is-invalid': (username.dirty || username.touched) && username.errors }" required autofocus>
+                            <label for="inputEmail">Email address</label>
+                            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+                                <small *ngIf="username.errors.required">
+                                    Email Address is required.
+                                  </small>
+                                  <small *ngIf="username.errors.email">
+                                      Email must be a valid email address
+                                  </small> 
+                            </div>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password" [ngClass]="{ 'is-invalid': (password.dirty || password.touched) && password.errors }" required>
+                            <label for="inputPassword">Password</label>
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                                <small *ngIf="password.errors.required">
+                                    Password is required.
+                                  </small>
+                                  <small *ngIf="password.errors.minlength">Password must be at least 6 characters</small>
+                            </div>
+                        </div>
+                        <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1" formControlName="password">
+                            <label class="custom-control-label" for="customCheck1">Remember password</label>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" [disabled]="!loginForm.valid">Sign in</button>
+                        <a class="d-block text-center mt-2 small" href="#">Forgot Password</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->

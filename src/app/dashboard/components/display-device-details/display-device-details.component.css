@@ -1,0 +1,36 @@
+p.serif {
+    font-family:Roboto Regular!important;
+    font-size: 16px!important;
+    margin-top: 15px;
+    
+}
+ h2,h5{
+    font-family:Roboto Regular!important; 
+ } 
+.circle {
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 50%; /* the magic */
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+   
+    font-weight: 700;
+    border: 5px solid #f1e014ba;
+    /* margin-left: 123px; */
+    
+  }
+  .btn-info {
+    color: #fff;
+    background: linear-gradient(to right, #244c7f ,#0062E6);
+    border-color: #0062E6;
+    font-family:Roboto Regular!important;
+}
+  .blue {
+    background-color: #fdfdfd
+  }
+  
+ 

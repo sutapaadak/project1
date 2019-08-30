@@ -1,0 +1,124 @@
+  
+  <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">Responsive App</h1>
+      <span class="example-fill-remaining-space"></span>
+
+      
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>perm_identity</mat-icon>
+          <span>{{userName}}</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>person_pin</mat-icon>
+          <span>View Account</span>
+        </button>
+        <button mat-menu-item (click) = "removeUser()">
+            <mat-icon>settings_power</mat-icon>
+            <span>Logout</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>  
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav  [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+          <mat-list-item *ngFor="let device of deviceList">
+            <a matLine [routerLink]="['devices', device.id]">{{device.deviceName}}</a>
+
+            <button mat-icon-button (click) = "openDialog(device.id)">
+                <i class="fa fa-cogs"  ></i>
+            </button>
+         </mat-list-item>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  
+  <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- <app-header></app-header>
+  <div class="sidebar" >        
+    <a  *ngFor="let device of deviceList" [routerLink]="[{outlets:{deviceDetails:['view-details',device.id]}}]"> {{device.deviceName}}
+        <i class="fa fa-cogs pull-right" data-toggle="modal" data-target="#myModal" ></i>
+        
+    </a>       
+  </div>
+  <div class="content">      
+      <router-outlet name="deviceDetails"> </router-outlet>
+  </div>
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">        
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Device Configuration</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>       
+      </div>
+      <form [formGroup]="modalForm" > 
+        <div class="modal-body">        
+          <div class="form-group row">
+            <label for="inputFanThreshold" class="col-sm-6 col-form-label">Fan Threshold Temp</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputPassword" placeholder="Fan Threshold Temp" formControlName="fThTemp">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputFanAction" class="col-sm-6 col-form-label">Fan Action Time</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputFanAction" placeholder="Fan Action Time" formControlName="fActionTime">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="FrequencyofData" class="col-sm-6 col-form-label">Frequency of Data</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="FrequencyofData" placeholder="Frequency of Data" formControlName="frequencyOfData">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="AlarmThresholdTemp" class="col-sm-6 col-form-label">Alarm Threshold Temp</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="AlarmThresholdTemp" placeholder="Alarm Threshold Temp" formControlName="aThTemp">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="AlarmActionTime" class="col-sm-6 col-form-label">Alarm Action Time</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="AlarmActionTime" placeholder="Alarm Action Time" formControlName="aActionTime">
+            </div>
+          </div>        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-info btn-lg" style = "float: right; padding: 4px 13px;" [disabled]="!modalForm.valid" (click)="submitModal()">Save</button>
+        </div>
+      </form>
+    </div>          
+  </div>
+</div>  -->
+
+ 

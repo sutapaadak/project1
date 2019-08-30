@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Device Configuration </h1>
+
+{{ data.deviceId }}
+<div mat-dialog-content>
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput placeholder="Fan Threshold Temp" >
+        </mat-form-field>
+        <mat-form-field>
+                <input matInput placeholder="Fan Action Time">
+        </mat-form-field>
+        <mat-form-field>
+                <input matInput placeholder="Frequency of Data">
+        </mat-form-field>
+        <mat-form-field>
+                <input matInput placeholder="Alarm Threshold Temp">
+        </mat-form-field>
+        <mat-form-field>
+                <input matInput placeholder="Alarm Action Time">
+        </mat-form-field>
+        
+        
+    </div>
+    <!-- <mat-form-field>
+        <input matInput [(ngModel)]="data.animal">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.animal">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.animal">
+    </mat-form-field> -->
+        
+    <!-- <mat-form-field>
+        <input matInput placeholder="Fan Action Time" >
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Frequency of Data" >
+    </mat-form-field>
+    <mat-form-field>
+        <input  placeholder="Alarm Threshold Temp" >
+    </mat-form-field>
+    <mat-form-field>
+        <input  placeholder="Alarm Action Time" >
+    </mat-form-field> -->
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div>

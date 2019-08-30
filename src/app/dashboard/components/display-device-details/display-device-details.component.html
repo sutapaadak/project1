@@ -1,0 +1,58 @@
+
+    <div class = "mt-4 container" >
+        <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#showChart" style = "padding: 5px 7px;font-size: 15px;float: right;margin-top: 2px;;">History</button>	--> 
+        <div class="row header">
+            <div class="col-xs-12 text-center">
+                    <h1>Current Status And Data Of Device </h1>
+            </div>
+        </div>   
+        <div class = "mt-4" *ngFor="let device of deviceDetails">     
+            <div class="circle blue">
+                <h2 style = "padding-top: 40px;color: black;">{{device.temperature}} &deg; C</h2> 
+                <h5 style = "color: blue;">Temperature</h5>
+            </div>  
+            <p class="serif">Humidity<span style="margin-left: 317px">{{device.humidity}}%</span></p>
+            <p class="serif">Alarm Status<span style="margin-left: 295px;">{{device.alarmStatus}}</span></p>
+            <p class="serif">Fan Status<span style="margin-left: 311px">{{device.fan_Status}}</span></p>
+            <p class="serif">Last Updated Date Time<span style="margin-left: 213px">{{device.updatedTime}}</span></p>
+        </div> 
+    </div>
+
+<!-- 
+<div  class="container mt-3">
+    <h2 style = "color: blue;"> Current Status And Data Of Device</h2>
+    <p>Use .flex-column to display the flex items vertically (on top of each other):</p>
+    <div class="d-flex justify-content-between bg-secondary mb-3" *ngFor="let device of deviceDetails"> 
+        <div class="p-2 red">Humidity <span style="float:right">{{device.humidity}}%</span></div>
+        <div class="p-2 red">Alarm Status<span style="float:right">{{device.alarmStatus}}</span></div>
+        <div class="p-2 red">Fan Status<span style="float:right">{{device.fan_Status}}</span></div>
+        <div class="p-2 red">Last Updated Date Time<span style="float:right">{{device.updatedTime}}</span></div>
+    </div>   
+</div>  -->
+
+
+
+<!-- <div class="container">
+    <div class="row header">
+        <div class="col-xs-12 text-center">
+             <h1>Current Status And Data Of Device </h1>
+        </div>
+    </div>
+    
+    <div class="row" *ngFor="let device of deviceDetails | keyvalue;index as key">
+        
+        <div class="col-sm-6 first-column" >
+            <div class="circle blue" *ngIf = "device.key == 'temperature'">
+                    <h2 style = "padding-top: 40px;color: black;">{{device.temperature}} &deg; C</h2> 
+                    <h5 style = "color: blue;">Temperature</h5>
+            </div>
+            {{device.key |uppercase}}
+        </div>
+        <div class="col-sm-6 second-column">
+            <p>
+                {{device.value}}
+            </p>
+        </div> 
+    </div>
+   
+</div> -->
